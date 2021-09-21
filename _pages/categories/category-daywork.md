@@ -7,3 +7,6 @@ permalink: /category-daywork/
 
 
 [(2) Image 올리기](https://masterjoon.github.io/일상/image_upload)
+
+
+[(3) 표 그리기](https://masterjoon.github.io/일상/table)
