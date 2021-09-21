@@ -19,7 +19,7 @@ locale                   : "en-US"
 title                    : "BotDiary"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Your Name"
+name                     : "MasterJoon"
 description              : "An amazing website."
 url                      : "https://MasterJoon.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
