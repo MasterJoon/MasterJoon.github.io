@@ -1,5 +1,7 @@
 # main links
 main:
+  - title: "Home"
+    url: "/"
   - title: "일상"
     url: /category-daywork/
   # - title: "Quick-Start Guide"
