@@ -7,4 +7,4 @@ author_profile: true
 sidebar_main: true
 ---
 
-![image](https://masterjoon.github.io/assets/_images/kkotgobi.jpeg)
+![image](https://github.com/MasterJoon/MasterJoon.github.io/blob/master/assets/_images/kkotgobi.jpeg)
