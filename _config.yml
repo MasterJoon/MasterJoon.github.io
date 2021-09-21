@@ -19,7 +19,7 @@ locale                   : "en-US"
 title                    : "BotDiary"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Master Joon"
+name                     : "Your Name"
 description              : "An amazing website."
 url                      : "https://MasterJoon.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
@@ -104,7 +104,7 @@ author:
   name             : "Master Joon"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "I am an **amazing** person."
-  location         : "Somewhere"
+  location         : "Seoul in **Korea**"
   email            :
   links:
     - label: "Email"
