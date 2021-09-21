@@ -2,6 +2,7 @@
 title: "일상"
 permalink: /category-daywork/
 author_profile: true
+sidebar_main: true
 ---
 [(1) BotDiary 블로그 첫 포스트!](https://masterjoon.github.io/일상/first)
 
