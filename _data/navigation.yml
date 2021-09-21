@@ -1,7 +1,7 @@
 # main links
 main:
   - title: "일상"
-    url: /daywork/first
+    url: /daywork/daywork_list
   # - title: "Quick-Start Guide"
   #   url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   # - title: "About"
