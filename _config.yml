@@ -12,7 +12,7 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "air" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
@@ -24,8 +24,8 @@ description              : "An amazing website."
 url                      : "https://MasterJoon.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : /assets/images/teaser.jpg # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+teaser                   : # "/assets/images/teaser.jpg" # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+logo                     : # "/assets/images/teaser.jpg" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
@@ -102,7 +102,7 @@ analytics:
 # Site Author
 author:
   name             : "Master Joon"
-  avatar           : # /assets/images/kkotgobi.jpeg"
+  avatar           : "/assets/images/kkotgobi.jpeg"
   bio              : # "I am an **amazing** person."
   location         : "Seoul, Korea"
   email            :
@@ -285,6 +285,11 @@ defaults:
       author_profile: true
       read_time: true
       comments: # true
-      share: true
-      related: true
-      sidebar_main: true
+      share: # true
+      related: # true
+  - scope:
+      path: ""
+    values:
+      author_profile: true
+      sidebar:
+        nav: "side"
