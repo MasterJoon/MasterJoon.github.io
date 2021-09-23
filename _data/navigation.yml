@@ -2,8 +2,8 @@
 main:
   - title: "Home"
     url: "/"
-  - title: "일상"
-    url: /category-daywork/
+  - title: "Category"
+    url: /category/
   # - title: "Quick-Start Guide"
   #   url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   # - title: "About"
@@ -14,3 +14,12 @@ main:
   #   url: /collection-archive/
   # - title: "Sitemap"
   #   url: /sitemap/
+side:
+  - title: "일상"
+    url: /category_daywork/
+  - title: "Python"
+    url: /category_python/
+  - title: "Microprocessor"
+    url: /category_mcu/
+  - title: "공학"
+    url: /category_eng/
