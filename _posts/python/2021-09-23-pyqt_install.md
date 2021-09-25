@@ -10,7 +10,7 @@ pip install PyQt5
 Pip install PyQt5-tools
 ```
 
-#2. 환경설정
+# 2. 환경설정
 환경변수에 다음과 같이 두 개의 변수를 추가해 준다.  
 ![image](/assets/images/conda_install/pyqt_path.png)
 
