@@ -111,5 +111,35 @@ x_{N}^{2}+y_{N}^{2}
 a \\ b \\ c
 \end{bmatrix}$$
 
-Pseudo-inverse를 사용하여 $$[a\ b\ c]^{T}$$를 구할 수 있다.  
+Pseudo-inverse를 사용하여 $$[a\ b\ c]^{T}$$를 구할 수 있다.
+
+$$\begin{bmatrix}
+a \\ b \\ c
+\end{bmatrix}=
+\left( \begin{bmatrix}
+2x_{1} & 2y_{1} & 1 \\
+2x_{2} & 2y_{2} & 1 \\
+\vdots \\
+2x_{N} & 2y_{N} & 1
+\end{bmatrix}^{T}
+\begin{bmatrix}
+2x_{1} & 2y_{1} & 1 \\
+2x_{2} & 2y_{2} & 1 \\
+\vdots \\
+2x_{N} & 2y_{N} & 1
+\end{bmatrix} \right)^{-1}
+\begin{bmatrix}
+2x_{1} & 2y_{1} & 1 \\
+2x_{2} & 2y_{2} & 1 \\
+\vdots \\
+2x_{N} & 2y_{N} & 1
+\end{bmatrix}^{T}
+\begin{bmatrix}
+x_{1}^{2}+y_{1}^{2} \\
+x_{2}^{2}+y_{2}^{2} \\
+\vdots \\
+x_{N}^{2}+y_{N}^{2}
+\end{bmatrix}
+$$
+
 원의 반지름 $$r$$은 $$r=\sqrt{c+a^{2}+b^{2}}$$ 으로 구할 수 있다.
