@@ -23,7 +23,7 @@ name                     : "Master Joon"
 description              : # "An amazing website."
 url                      : "https://MasterJoon.github.io" # "/assets/images/kkotgobi_profile.jpg"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : "https://github.com/MasterJoon/MasterJoon.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : "/assets/images/logo.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # "BotDiary" # overrides the website title displayed in the masthead, use " " for no title
@@ -285,13 +285,21 @@ defaults:
       author_profile: true
       read_time: true
       comments: true
-      share: # true
-      related: # true
-      sidebar_main: true
+      sidebar:
+        nav: "side"
+  # _pages
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+      sidebar:
+        nav: "side"
+  # root("/")
   - scope:
       path: ""
     values:
       author_profile: true
       sidebar:
         nav: "side"
-      sidebar_main: true
