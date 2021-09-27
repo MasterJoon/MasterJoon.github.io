@@ -287,9 +287,11 @@ defaults:
       comments: true
       share: # true
       related: # true
+      sidebar_main: true
   - scope:
       path: ""
     values:
       author_profile: true
       sidebar:
         nav: "side"
+      sidebar_main: true
