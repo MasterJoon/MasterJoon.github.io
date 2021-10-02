@@ -296,10 +296,3 @@ defaults:
       author_profile: true
       sidebar:
         nav: "side"
-  # root("/")
-  - scope:
-      path: ""
-    values:
-      author_profile: true
-      sidebar:
-        nav: "side"
