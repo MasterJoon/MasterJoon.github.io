@@ -1,7 +1,7 @@
 ---
 title:  "Image 올리기"
 categories:
-  - 일상
+  - daywork
 ---
   **코드**
 

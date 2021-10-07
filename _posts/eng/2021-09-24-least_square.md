@@ -1,7 +1,7 @@
 ---
 title:  "Least-square Solution"
 categories:
-  - 공학
+  - eng
 ---
 - Least-square Solution은 다양한 분야에서 사용되는 데이터 기반의 근사화 기법이다.
 
