@@ -1,5 +1,5 @@
 ---
-title: "daywork"
+title: "일상"
 layout: archive
 permalink: /category_daywork/
 ---
