@@ -21,5 +21,7 @@ side:
     url: /category_python/
   - title: "Microprocessor"
     url: /category_mcu/
+  - title: "Raspberry Pi"
+    url: /category_rpi/
   - title: "공학"
     url: /category_eng/
