@@ -25,6 +25,7 @@ Raspberry Pi OS를 설치하기 위해서는 [*Raspberry Pi Imager*](https://www
 이렇게 설정하고, 저장을 누른 뒤 설치할 SD 카드 디스크를 선택하고 쓰기를 누르면 설치가 진행된다.  
 설치가 완료되면 Imger 프로그램이 알아서 SD 카드 디스크를 unmount 시키는데, 우리는 추가적인 작업이 필요하기 때문에 뺐다가 다시 꽂자.  
 꽂으면 boot 라는 디스크가 잡히는데, 그 곳을 열어보면 config.txt라는 파일을 찾을 수 있다. 그 파일의 끝부분에 다음 내용을 추가해 주자.  
+#### config.txt
 ```
 [all]
 # Enable UART1
@@ -66,18 +67,21 @@ static rounters=111.222.333.1
 ```
 
 우리는 Rapsberry Pi OS 설치 과정에서 wifi 연결을 설정했지만, 혹시 하지 못한 경우는 다음과 같이 wifi 연결 설정을 할 수 있다.  
+#### /etc/wpa_supplicant/wpa_supplicant.conf 내용 추가
 ```sh
 ~ $ sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
-
-[/etc/wpa_supplicant/wpa_supplicant.conf 내용 추가]
+```
+```sh
 network={
         ssid="wifi 이름"
         psk="비밀번호"
 }
-
+```
+#### /etc/network/interfaces 내용 추가
+```sh
 ~ $ sudo nano /etc/network/interfaces
-
-[/etc/network/interfaces 내용 추가]
+```
+```sh
 auto lo
 
 iface lo inet loopback
@@ -199,7 +203,7 @@ EX) scp rt-kernel.tgz pi@192.168.0.13:/tmp
 파일 전송을 위해 ssh 비밀번호(Fingerprint) yes 입력 후 진행
 ```sh
 ~/rpi-kernel $ scp rt-kernel.tgz pi@192.168.0.13:/tmp
-The authenticity of host '192.168.0.13 (192.168.0.13)' can't be established.
+The authenticity of host \'192.168.0.13 (192.168.0.13)\' can\'t be established.
 ECDSA key fingerprint is SHA256:lgyiOSKj0MbVrRkr7Qffp0iB...(생략)
 Are you sure you want to continue connecting (yes/no)? yes
 ```  
@@ -247,8 +251,9 @@ rt-kernel.tgz
 - 부트 설정 변경
 ```sh
 /tmp/rt-kernel $ sudo nano /boot/config.txt
-
-[/boot/config.txt 내용 추가]
+```
+#### /boot/config.txt 내용 추가
+```sh
 # Change RT-kernel
 kernel=kernel7_rt.img
 ```  
