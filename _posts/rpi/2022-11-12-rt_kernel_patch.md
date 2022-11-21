@@ -27,13 +27,13 @@ Raspberry Pi OS를 설치하기 위해서는 [*Raspberry Pi Imager*](https://www
 꽂으면 boot 라는 디스크가 잡히는데, 그 곳을 열어보면 config.txt라는 파일을 찾을 수 있다. 그 파일의 끝부분에 다음 내용을 추가해 주자.  
 #### config.txt
 ```
-[all]
-# Enable UART1
-enable_uart=1
-
 [pi3]
 # Disable bluetooth
 dtoverlay=pi3-disable-bt
+
+[all]
+# Enable UART1
+enable_uart=1
 ```  
 이 내용은 Raspberry Pi GPIO 핀 중에서 UART1 핀을 CLI Command 모드로 사용하겠다는 것이다.  
 Raspberry Pi 3의 경우는 Bluetooth가 UART1을 통해 통신을 하기 때문에 Bluetooth를 비활성화 해야 UART1을 사용할 수 있다.  
@@ -67,16 +67,59 @@ static rounters=111.222.333.1
 ```
 
 우리는 Rapsberry Pi OS 설치 과정에서 wifi 연결을 설정했지만, 혹시 하지 못한 경우는 다음과 같이 wifi 연결 설정을 할 수 있다.  
-#### /etc/wpa_supplicant/wpa_supplicant.conf 내용 추가
+#### /etc/wpa_supplicant/wpa_supplicant.conf 내용 생성
 ```sh
-~ $ sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+~ $ sudo su
+~ $ wpa_passphrase "ssid_이름" > /etc/wpa_supplicant/wpa_supplicant.conf
+비밀번호 입력 후 Enter
 ```
+/etc/wpa_supplicant/wpa_supplicant.conf 내용이 아래와 같이 생성됨
 ```sh
 network={
-        ssid="wifi 이름"
-        psk="비밀번호"
+	ssid="wifi 이름"
+	#psk="입력한 비밀번호"
+	psk=생성된 psk
 }
 ```
+위 내용으로 wifi 연결을 하기 위해 다음 명령어 입력한다.  
+#### wifi 연결
+```sh
+~ $ sudo wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
+
+-B : 백드라운드 실행
+-i wlan0 : 무선랜 인터페이스 이름
+-c /etc/wpa_supplicant/wpa_supplicant.conf : wifi 설정 정보 파일 경로
+```
+#### dhcp 할당 받기
+```sh
+~ $ sudo dhclient wlan0
+```  
+만약, SD카드에 OS 설치 과정에서 wifi 설정을 하지 않았다면 다음과 같이 뜨면서 연결이 되지 않는다.
+```sh
+Successfully initialized wpa_supplicant
+rfkill: WLAN soft blocked
+rfkill: WLAN soft blocked
+```  
+이는 software에 의해서 인터넷이 block되어 있기 때문이다.
+다음과 같이 확인 후 해제 할 수 있다.
+```sh
+~ $ sudo rfkill list
+0: phy0: Wireless LAN
+        Soft blocked: yes
+        Hard blocked: no
+1: hci0: Bluetooth
+        Soft blocked: no
+        Hard blocked: no
+~ $ sudo rfkill unblock wifi
+~ $ sudo rfkill list
+0: phy0: Wireless LAN
+        Soft blocked: no
+        Hard blocked: no
+1: hci0: Bluetooth
+        Soft blocked: no
+        Hard blocked: no
+```  
+부팅하면 설정한 wifi에 자동으로 연결되게 하려면 다음과 같이 설정한다.
 #### /etc/network/interfaces 내용 추가
 ```sh
 ~ $ sudo nano /etc/network/interfaces
@@ -202,10 +245,13 @@ EX) scp rt-kernel.tgz pi@192.168.0.13:/tmp
 ```  
 파일 전송을 위해 ssh 비밀번호(Fingerprint) yes 입력 후 진행
 ```sh
-~/rpi-kernel $ scp rt-kernel.tgz pi@192.168.0.13:/tmp
-The authenticity of host \'192.168.0.13 (192.168.0.13)\' can\'t be established.
-ECDSA key fingerprint is SHA256:lgyiOSKj0MbVrRkr7Qffp0iB...(생략)
-Are you sure you want to continue connecting (yes/no)? yes
+~/rpi-kernel $ sudo scp ./rt-kernel.tgz pi@192.168.0.13:/tmp
+The authenticity of host '192.168.0.13 (192.168.0.13)' can't be established.
+ECDSA key fingerprint is SHA256:Xed7FHW+g51hJbD...(생략)
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '192.168.0.13' (ECDSA) to the list of known hosts.
+pi@192.168.0.13's password:
+비밀번호 입력
 ```  
 
 #### 10) Raspberry Pi에 kernel 설치
