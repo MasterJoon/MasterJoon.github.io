@@ -183,13 +183,13 @@ RT kernel patch를 하는 여러가지 방법이 있지만, 필자는 github.com
 #### 6) 커널빌드 설정
 - Raspberry Pi 2, 3B(+)
 ```sh
-~/rpi-kernel $ export KERNEL-kernel7
+~/rpi-kernel $ export KERNEL=kernel7
 ~/rpi-kernel $ cd linux
 ~/rpi-kernel/linux $ make bcm2709_defconfig
 ```  
 - Raspberry Pi 4B
 ```sh
-~/rpi-kernel $ export KERNEL-kernel7l
+~/rpi-kernel $ export KERNEL=kernel7l
 ~/rpi-kernel $ cd linux
 ~/rpi-kernel/linux $ make bcm2711_defconfig
 ```
@@ -223,7 +223,7 @@ RT kernel patch를 하는 여러가지 방법이 있지만, 필자는 github.com
 ```  
 - 커널 이미지 생성
 ```sh
-~/rpi-kernel/linux $ ./scripts/mkknlimg ./arch/arm/zImage $INSTALL_MOD_PATH/boot/$KERNEL.img
+~/rpi-kernel/linux $ ./scripts/mkknlimg ./arch/arm/boot/zImage $INSTALL_MOD_PATH/boot/$KERNEL.img
 ```  
 - 커널 이미지 디렉터리로 이동 후 파일 이름 변경
 ```sh
