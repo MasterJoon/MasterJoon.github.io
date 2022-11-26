@@ -181,6 +181,12 @@ RT kernel patch를 하는 여러가지 방법이 있지만, 필자는 github.com
 ```
 
 #### 6) 커널빌드 설정
+- Raspberry Pi zero(W)
+```sh
+~/rpi-kernel $ export KERNEL=kernel
+~/rpi-kernel $ cd linux
+~/rpi-kernel/linux $ make bcmrpi_defconfig
+```
 - Raspberry Pi 2, 3B(+)
 ```sh
 ~/rpi-kernel $ export KERNEL=kernel7
@@ -302,6 +308,11 @@ rt-kernel.tgz
 ```sh
 # Change RT-kernel
 kernel=kernel7_rt.img
+```  
+#### /boot/cmdlin.txt 내용 추가 (Raspberry Pi zero (W) 모델에만 필요)
+```sh
+# USB OTG Disable
+dwc_otg.fiq_enable=0 dwc_otg.fiq_fsm_enable=0 dwc_otg.nak_holdoff=0
 ```  
 
 이제 RT kernel patch의 모든 과정이 끝났고, 재부팅 하고 uname -a 명령어로 kernel 버전을 확인해 보자.  
